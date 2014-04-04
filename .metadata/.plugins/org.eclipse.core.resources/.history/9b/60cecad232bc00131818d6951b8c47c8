@@ -1,0 +1,16 @@
+package com.example.smsreceiver;
+
+import com.parse.ParseObject;
+
+public class ParseInfo {
+	static ParseObject testObject = null;
+	
+	 static  void set(ParseObject obj) {
+		
+		 testObject = obj;
+	}
+	 static ParseObject get() {
+		 return testObject;
+	 }
+
+}

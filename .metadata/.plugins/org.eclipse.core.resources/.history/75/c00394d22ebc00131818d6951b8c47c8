@@ -1,0 +1,7 @@
+package com.example.servicedemo;
+
+import Service;
+
+public class MyService extends Service {
+
+}

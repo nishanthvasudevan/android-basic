@@ -1,0 +1,50 @@
+package com.example.smsreceiver;
+
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseObject;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.util.Log;
+import android.view.Menu;
+
+
+public class MainActivity extends Activity {
+
+	//String appid="6LutfEZ1gO96QY3I2C852XoUhDp6WWpk0traewYG";
+	//String key="3u7049LuBfPJkxvomHupqKXCUFJtGj4IPI7Mq7Qv";
+	
+	//String appid="xYydlH4J3SYWoDwYMbImKsK8vPtPS9H6wnI0JGSE";
+	//String key = "XlK4KqvyEpYnBv1x0VWw3qHVSQu0mAGB5G16JPml";
+	
+	String appid="ue75rEOwqloTPls9y3ua7cgF734yMgZrkVaJtn3o";
+	String key="CZfT2YQaIfkx4MtkBTn8P9J6xjJouFqUUTkaeWs5";
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		Log.e("Parse","parse");
+			Parse.initialize(this, appid, key);
+			ParseAnalytics.trackAppOpened(getIntent());
+			//ParseObject testObject = new ParseObject("TestObject");
+			//testObject.put("foo", "bar");
+			//testObject.saveInBackground();
+			ParseObject test =new ParseObject("SMS");
+			ParseInfo.set(test);
+			test = ParseInfo.get();
+			test.put("number", "123");
+			test.put("msg", "abc");
+			test.saveInBackground();
+			
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+}
